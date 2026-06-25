@@ -1,13 +1,14 @@
 """
-what does this do: this is the main function, duh
+what does this do: cleans up and sets up a nice CLI interface for your response
+input: agent's response
+flow: userinput -> validate -> prompt -> agent -> here
 """
-from rich.console import Console
+from config import console
 from rich.panel import Panel
-from models import Response
+from models.models import Response
+from agent.agent import agent_response
 
-console = Console()
-
-def print_res(res: Response):
+def interface(res: Response):
     console.print(
         Panel(
             res.summary,

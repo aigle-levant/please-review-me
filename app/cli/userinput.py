@@ -5,18 +5,17 @@ input: file path
 
 # imports
 from pathlib import Path
-from config import console
+from config import console, li
 
 def read_input() -> Path | None:
-    print("Say 'stop' or 'quit' to exit process.")
+    console.print("Say 'stop' or 'quit' to exit process.")
     while True:
         filepath = console.input(f"Sigh...which file do you want me to review?: ").strip()
         path = Path(filepath)
         command = filepath.lower()
-        li = ["stop", "quit"]
         if (command in li):
-            print("Alright, alright, time's up. Let's wind down.")
-            return
+            console.print("Alright, alright, time's up. Let's wind down.")
+            return None
         if not path.exists():
             console.print("[red]File doesn't exist. What are you giving me, [i]air[/i]?[/red]\n")
             continue
