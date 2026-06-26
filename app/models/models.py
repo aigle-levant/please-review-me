@@ -9,3 +9,10 @@ class Response(BaseModel):
     performance: list[str]
     suggestions: list[str]
     summary: str
+
+class ChangedFile(BaseModel):
+    filename: str
+    status: str
+    additions: int
+    deletions: int
+    patch: str | None = None

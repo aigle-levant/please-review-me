@@ -6,7 +6,6 @@ flow: userinput -> validate -> prompt -> agent -> here
 from config import console
 from rich.panel import Panel
 from models.models import Response
-from agent.agent import agent_response
 
 def interface(res: Response):
     console.print(
